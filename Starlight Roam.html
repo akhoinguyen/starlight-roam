@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body onload="Init()">
+
+<p>Starlight Roam</p>
+<canvas id="myCanvas" width="1750" height="737" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var canvas;
+var ctx;
+var player_img;
+
+var player_width = 1000;  
+var player_height = 500; 
+var frame_x = 0;        
+var total_frames = 4;  
+var current_frame = 0;  
+var sprite_speed = 3;  
+var frame_timer = 0;
+
+var player_x = 100;
+var player_y = 200;
+var isJumping = false;
+var jumpVelocity = -50;  
+var gravity = 4;  
+var groundLevel = 200;
+
+var bg_offset = 0;
+var bg_speed = 10;
+
+var moveLeft = false;
+var moveRight = false;
+
+var obstacle = {
+    x: 1000,
+    y: 640,
+    width: 200,
+    height: 200,
+    speed: bg_speed
+};
+
+var interactionImage = new Image();
+interactionImage.src = "death screen.JPG"; 
+var isInteracting = false;
+//var interactionText = "Refresh Browser to Try Again";
+
+function Init() {
+    canvas = document.getElementById("myCanvas");
+    ctx = canvas.getContext("2d");
+    player_img = new Image();
+    player_img.src = "spritesheet.png"; 
+
+    bg_img = new Image();
+    bg_img.src = "bg copy.jpg";
+
+    obstacle_img = new Image();
+    obstacle_img.src = "foods3.png";
+}
+
+setInterval(MainLoop, 100);
+window.addEventListener('keydown', KeyDown);
+window.addEventListener('keyup', KeyUp);
+
+function MainLoop() {
+    Update();
+    Draw();
+}
+
+function Update() {
+    if (moveRight) {
+        frame_timer++;
+
+        if (frame_timer >= sprite_speed) {
+            current_frame++;
+            if (current_frame >= total_frames) {
+                current_frame = 0; 
+            }
+            frame_x = current_frame * player_width;
+            frame_timer = 0;
+        }
+
+        bg_offset -= bg_speed; 
+        obstacle.x -= obstacle.speed; 
+    } else {
+        current_frame = 0; 
+        frame_x = current_frame * player_width;
+    }
+    if (!isJumping) {
+    }
+    if (isJumping) {
+        player_y += jumpVelocity;
+        jumpVelocity += gravity;
+
+        if (player_y >= groundLevel) {
+            player_y = groundLevel;
+            isJumping = false;
+            jumpVelocity = -50; 
+        }
+    }
+
+    if (obstacle.x + obstacle.width < 0) {
+        obstacle.x = canvas.width + Math.random() * 500;
+    }
+}
+
+function Draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (isNearObstacle() && !isInteracting) {
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "yellow";
+        ctx.textAlign = "center";
+        ctx.fillText("Press Space if you want to eat!", canvas.width / 2, canvas.height - 40);
+    }
+
+    if (isInteracting) {
+        ctx.drawImage(interactionImage, 0, 0, canvas.width, canvas.height);
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.fillText(interactionText, canvas.width / 2, canvas.height - 20);
+        return;
+    }
+
+    ctx.drawImage(bg_img, bg_offset, 0, canvas.width, canvas.height);
+    ctx.drawImage(bg_img, bg_offset + canvas.width, 0, canvas.width, canvas.height);
+
+    if (bg_offset <= -canvas.width) {
+        bg_offset = 0;
+    }
+
+    ctx.drawImage(
+        player_img,
+        frame_x, 0, player_width, player_height, 
+        player_x, player_y, player_width, player_height
+    );
+
+    ctx.drawImage(
+        obstacle_img,
+        obstacle.x,
+        obstacle.y - obstacle.height,
+        obstacle.width,
+        obstacle.height
+    );
+}
+
+function KeyDown(event) {
+    if (event.key === "ArrowRight") {
+        moveRight = true;
+    }
+    if (event.key === "ArrowLeft") {
+        moveLeft = true;
+    }
+    if (event.key === "ArrowUp") {
+        if (!isJumping) {
+            isJumping = true;
+            jumpVelocity = -30;
+        }
+    }
+    if (event.key === " " && isNearObstacle()) {
+        isInteracting = true;
+    }
+}
+
+function KeyUp(event) {
+    if (event.key == "ArrowRight") {
+        moveRight = false;
+    }
+    if (event.key == "ArrowLeft") {
+        moveLeft = false;
+    }
+}
+
+function isNearObstacle() {
+    return (
+        player_x + player_width > obstacle.x &&
+        player_x < obstacle.x + obstacle.width &&
+        player_y + player_height > obstacle.y - obstacle.height &&
+        player_y < obstacle.y
+    );
+}
+</script>
+</body>
+</html>
