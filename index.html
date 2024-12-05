@@ -13,19 +13,19 @@ var canvas;
 var ctx;
 var player_img;
 
-var player_width = 1000;  
-var player_height = 500; 
-var frame_x = 0;        
-var total_frames = 4;  
-var current_frame = 0;  
-var sprite_speed = 3;  
+var player_width = 1000;
+var player_height = 500;
+var frame_x = 0;
+var total_frames = 4;
+var current_frame = 0;
+var sprite_speed = 3;
 var frame_timer = 0;
 
 var player_x = 100;
 var player_y = 200;
 var isJumping = false;
-var jumpVelocity = -50;  
-var gravity = 4;  
+var jumpVelocity = -50;
+var gravity = 4;
 var groundLevel = 200;
 
 var bg_offset = 0;
@@ -43,7 +43,7 @@ var obstacle = {
 };
 
 var interactionImage = new Image();
-interactionImage.src = "death screen.JPG"; 
+interactionImage.src = "death-screen.jpg"; 
 var isInteracting = false;
 //var interactionText = "Refresh Browser to Try Again";
 
@@ -51,7 +51,7 @@ function Init() {
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
     player_img = new Image();
-    player_img.src = "spritesheet.png"; 
+    player_img.src = "spritesheet.png";
 
     bg_img = new Image();
     bg_img.src = "bg copy.jpg";
@@ -76,16 +76,16 @@ function Update() {
         if (frame_timer >= sprite_speed) {
             current_frame++;
             if (current_frame >= total_frames) {
-                current_frame = 0; 
+                current_frame = 0;
             }
             frame_x = current_frame * player_width;
             frame_timer = 0;
         }
 
-        bg_offset -= bg_speed; 
-        obstacle.x -= obstacle.speed; 
+        bg_offset -= bg_speed;
+        obstacle.x -= obstacle.speed;
     } else {
-        current_frame = 0; 
+        current_frame = 0;
         frame_x = current_frame * player_width;
     }
     if (!isJumping) {
@@ -97,7 +97,7 @@ function Update() {
         if (player_y >= groundLevel) {
             player_y = groundLevel;
             isJumping = false;
-            jumpVelocity = -50; 
+            jumpVelocity = -50;
         }
     }
 
@@ -134,7 +134,7 @@ function Draw() {
 
     ctx.drawImage(
         player_img,
-        frame_x, 0, player_width, player_height, 
+        frame_x, 0, player_width, player_height,
         player_x, player_y, player_width, player_height
     );
 
