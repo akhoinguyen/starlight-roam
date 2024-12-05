@@ -1,6 +1,7 @@
 # Starlight Roam
-by Tyler N. and Khoi N.
+
+by Tyler Nykilchyk and Khoi Nguyen.
 
 ---
 
-Play here: ```akhoinguyen.github.io/starlight-roam```
+Play here: ```(akhoinguyen.github.io/starlight-roam)```
