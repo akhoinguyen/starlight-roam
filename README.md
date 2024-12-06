@@ -28,4 +28,5 @@ Play here: ```akhoinguyen.github.io/starlight-roam```
 
 ## Gameplay
 
+| --- | --- | --- |
 | ![Gameplay screenshot](/gameplay-screenshots/screenshot-1.png) | ![Gameplay screenshot](/gameplay-screenshots/screenshot-2.png) | ![Gameplay screenshot](/gameplay-screenshots/screenshot-3.png) |
