@@ -32,6 +32,8 @@ Play here: ```akhoinguyen.github.io/starlight-roam```
 | --- | --- | --- |
 | ![Gameplay screenshot](/assets/gameplay-screenshots/screenshot-1.png) | ![Gameplay screenshot](/assets/gameplay-screenshots/screenshot-2.png) | ![Gameplay screenshot](/assets/gameplay-screenshots/screenshot-3.png) |
 
+Watch the game walkthrough on YouTube [here.](https://youtu.be/Fwt5qXwviD8?si=OAQafWrVftlvSye5)
+
 ---
 ## Developers Bio
 
