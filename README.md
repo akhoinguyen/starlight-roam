@@ -36,9 +36,9 @@ Forest animal (ie. fox) exploring in an enchanted forest and needs to eat food t
 
 Fantasy, Adventure
 
-### Gameplay
+### Gameplay Instructions
 
-It will be a side scroller game where the player uses the D key or right arrow to walk, up arrow to jump, player can choose whether to eat objects (space bar) or not, if you choose to eat something that was poison you lose.
+Use right arrow to walk, up arrow to jump, choose to eat plants by pressing space bar, survive as long as you want!
 
 ### Features
 
