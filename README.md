@@ -26,9 +26,33 @@ Play here: ```akhoinguyen.github.io/starlight-roam```
 
 ---
 
-## Gameplay
+## Game Details
 
-| Start | Food Encounter | Game over |
+### Concept
+
+Forest animal (ie. fox) exploring in an enchanted forest and needs to eat food to survive, some foods are cursed and poisonous, beware and make the right choices to survive! Simple black-and-white game with an accent colour.
+
+### Genre
+
+Fantasy, Adventure
+
+### Gameplay
+
+It will be a side scroller game where the player uses the D key or right arrow to walk, up arrow to jump, player can choose whether to eat objects (space bar) or not, if you choose to eat something that was poison you lose.
+
+### Features
+
+Single player game, there’s foods/plants on the path, goal is to appreciate the time you have before you inevitably die. Game over message: “The end of your time has come.”
+
+### Setting
+
+Nighttime Enchanted Forest
+
+### Team
+
+Design and Art Lead: Tyler Nykilchyk, Website Lead: Khoi Nguyen, Both Programming Co-Leads
+
+| Jump | Food Encounter | Game over |
 | --- | --- | --- |
 | ![Gameplay screenshot](/assets/gameplay-screenshots/screenshot-1.png) | ![Gameplay screenshot](/assets/gameplay-screenshots/screenshot-2.png) | ![Gameplay screenshot](/assets/gameplay-screenshots/screenshot-3.png) |
 
