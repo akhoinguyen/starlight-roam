@@ -6,21 +6,21 @@ Play here: ```akhoinguyen.github.io/starlight-roam```
 
 ---
 
-## Concept art:
+## Concept art
 
-### Character:
+### Character
 
 ![Style sheet of the playable character](/assets/concept-art/foxconcept.jpg)
 
-### Objects:
+### Objects
 
 ![Style sheet of still objects](/assets/concept-art/foodconcept.jpg)
 
-### Background:
+### Background
 
 ![Background illustration](/assets/concept-art/backgroundconcept.jpg)
 
-### Game over screen:
+### Game over screen
 
 ![Game over screen illustration](/assets/concept-art/endscreenconcept.jpg)
 
